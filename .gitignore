@@ -1,5 +1,4 @@
 .env
 games.db
 battelog.json
-all_cards.json
 __pycache__/
