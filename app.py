@@ -9,7 +9,7 @@ load_dotenv()
 dbcr.setup_db()
 
 
-player_tag = "%23YGQG0J"
+player_tag = os.getenv("player_tag")
 
 api_key = os.getenv("SUPERCELL_API_KEY")
 
@@ -20,8 +20,10 @@ headers = {
     'Authorization': f'Bearer {api_key}'
 }
 
+
 response = requests.get(url, headers=headers)
 data = response.json()
+
 
 def print_json_battlelog():
     with open("battlelog.json", "w") as datei0:
@@ -81,7 +83,7 @@ def winrate_percent(input_wins, input_draws, input_amount_games):
     result = (input_wins + 0.5 * input_draws)/input_amount_games
     return (f"{result*100:.2f} %")
 
-print_json_battlelog()
+
 cards = update_card_information()
 
 
