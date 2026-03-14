@@ -11,7 +11,7 @@ dbcr.setup_db()
 
 player_tag = "%23YGQG0J"
 
-api_key = os.getenv("SUERCELL_API_KEY")
+api_key = os.getenv("SUPERCELL_API_KEY")
 
 url = f"https://api.clashroyale.com/v1/players/{player_tag}/battlelog"
 url1 = f"https://api.clashroyale.com/v1/cards"
@@ -22,7 +22,6 @@ headers = {
 
 response = requests.get(url, headers=headers)
 data = response.json()
-
 
 def print_json_battlelog():
     with open("battlelog.json", "w") as datei0:
@@ -82,7 +81,7 @@ def winrate_percent(input_wins, input_draws, input_amount_games):
     result = (input_wins + 0.5 * input_draws)/input_amount_games
     return (f"{result*100:.2f} %")
 
-
+print_json_battlelog()
 cards = update_card_information()
 
 
